@@ -116,17 +116,12 @@ function paginatedResults(model) {
       };
     }
 
-    if (req.query.priceForm) results.priceForm = req.query.priceForm;
-    if (req.query.priceTo) results.priceTo = req.query.priceTo;
-
     try {
       //.populate("colors.color colors.image capacities")
       res.paginatedResults = await model
         .find()
         .select("-capacities -colors.color -colors._id")
-        .where("priceOnSales")
-        .gt(priceFrom)
-        .lt(priceTo)
+      
         .populate("colors.image")
         .limit(limit)
         .skip(startIndex)

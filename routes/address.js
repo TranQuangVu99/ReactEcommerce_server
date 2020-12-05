@@ -14,8 +14,6 @@ router.post("/addresses", verifyToken, async (req, res) => {
     address.state = req.body.state;
     address.zipCode = req.body.zipCode;
     address.phoneNumber = req.body.phoneNumber;
-    address.deliverInstructions = req.body.deliverInstructions;
-    address.securityCode = req.body.securityCode;
 
     await address.save();
     res.json({
@@ -87,11 +85,6 @@ router.put("/addresses/:id", verifyToken, async (req, res) => {
       if (req.body.state) foundAddress.state = req.body.state;
       if (req.body.zipCode) foundAddress.zipCode = req.body.zipCode;
       if (req.body.phoneNumber) foundAddress.phoneNumber = req.body.phoneNumber;
-      if (req.body.deliverInstructions)
-        foundAddress.deliverInstructions = req.body.deliverInstructions;
-      if (req.body.securityCode)
-        foundAddress.securityCode = req.body.securityCode;
-
       await foundAddress.save();
       res.json({
         success: true,

@@ -57,7 +57,12 @@ router.post('/payment',verifyToken,(req,res) =>{
             order.products.push({
                 productID : product.productID, 
                 quantity : parseInt(product.quantity),
-                price : product.price
+                price : product.price,
+                capacity : product.capacity,
+                color : product.indexColor,
+                capacityCostPlus : product.capacityCostPlus,
+                colorCostPlus : product.colorCostPlus,
+                photo : product.photo
             })
         })
         order.estimatedDelivery = req.body.estimatedDelivery

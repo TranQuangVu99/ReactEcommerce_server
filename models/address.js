@@ -11,8 +11,6 @@ const AddressSchema = new Schema ({
     state:String,
     zipCode:Number,
     phoneNumber:String,
-    deliverInstructions:String,
-    securityCode: String
 })   
 
 module.exports = mongoose.model("Address",AddressSchema)

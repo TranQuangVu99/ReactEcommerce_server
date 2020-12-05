@@ -8,8 +8,11 @@ const OrderSchema = new Schema({
             quantity : Number,
             price : Number,
             photo :String,
-            colorName:String,
-            capacity:Number
+            capacity:Number,
+            color : String,
+            capacityCostPlus : Number,
+            colorCostPlus : Number,
+            photo : String
         }
     ],
     estimatedDelivery : Date,
